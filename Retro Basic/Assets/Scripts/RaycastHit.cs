@@ -17,7 +17,7 @@ public class RaycastHitExample : MonoBehaviour
 		{
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
-
+			
 			if (Physics.Raycast(ray, out hit, 100) && hit.transform.CompareTag("Example"))
 			{
 				GameObject mole = hit.collider.gameObject;
