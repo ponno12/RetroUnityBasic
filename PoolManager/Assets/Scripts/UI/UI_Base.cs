@@ -4,30 +4,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-//ui의 최상단 베이스
+
 public abstract class UI_Base : MonoBehaviour
 {
 	protected Dictionary<Type, UnityEngine.Object[]> _objects = new Dictionary<Type, UnityEngine.Object[]>();
-
 	public abstract void Init();
 
 	protected void Bind<T>(Type type) where T : UnityEngine.Object
 	{
 		string[] names = Enum.GetNames(type);
-		
 		UnityEngine.Object[] objects = new UnityEngine.Object[names.Length];
 		_objects.Add(typeof(T), objects);
 
 		for (int i = 0; i < names.Length; i++)
 		{
 			if (typeof(T) == typeof(GameObject))
-			{
 				objects[i] = Util.FindChild(gameObject, names[i], true);
-				Debug.Log($"Find object {names[i]}");
-			}
 			else
 				objects[i] = Util.FindChild<T>(gameObject, names[i], true);
-				Debug.Log($"Find to bind({names[i]})");
 
 			if (objects[i] == null)
 				Debug.Log($"Failed to bind({names[i]})");
@@ -50,7 +44,7 @@ public abstract class UI_Base : MonoBehaviour
 
 	public static void BindEvent(GameObject go, Action<PointerEventData> action, Define.UIEvent type = Define.UIEvent.Click)
 	{
-		UI_EventHandler evt = Util.GetOrAddC omponent<UI_EventHandler>(go);
+		UI_EventHandler evt = Util.GetOrAddComponent<UI_EventHandler>(go);
 
 		switch (type)
 		{
