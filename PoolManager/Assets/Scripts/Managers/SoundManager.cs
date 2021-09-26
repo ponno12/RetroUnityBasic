@@ -10,7 +10,6 @@ public class SoundManager
     // MP3 Player   -> AudioSource
     // MP3 음원     -> AudioClip
     // 관객(귀)     -> AudioListener
-
     public void Init()
     {
         GameObject root = GameObject.Find("@Sound");
@@ -48,7 +47,7 @@ public class SoundManager
     }
 
 	public void Play(AudioClip audioClip, Define.Sound type = Define.Sound.Effect, float pitch = 1.0f)
-	{
+	{   //오디오 클립이 없을시 반환밑 소스 할당
         if (audioClip == null)
             return;
 
