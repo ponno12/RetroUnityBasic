@@ -47,7 +47,7 @@ public class SoundManager
     }
 
 	public void Play(AudioClip audioClip, Define.Sound type = Define.Sound.Effect, float pitch = 1.0f)
-	{   //오디오 클립이 없을시 반환밑 소스 할당
+	{   //오디오 클립이 없을시 반환밑 
         if (audioClip == null)
             return;
 
