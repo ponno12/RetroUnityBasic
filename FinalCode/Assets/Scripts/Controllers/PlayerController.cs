@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class PlayerController : BaseController
-{
+{	//공부겸 해석 주석처리 시작
 	int _mask = (1 << (int)Define.Layer.Ground) | (1 << (int)Define.Layer.Monster);
 
 	PlayerStat _stat;
