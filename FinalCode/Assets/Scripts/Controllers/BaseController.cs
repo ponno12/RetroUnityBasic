@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class BaseController : MonoBehaviour
-{
+{	//모든 컨트롤러의 부모클래스
 	[SerializeField]
 	protected Vector3 _destPos;
 
